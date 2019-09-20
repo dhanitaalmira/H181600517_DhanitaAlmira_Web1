@@ -63,16 +63,22 @@
                         <div class="form-group row">
                             <label for="captcha" class="col-md-4 col-form-label text-md-right">{{ __('CAPTCHA') }}</label>
 
-                            <div class="col-md-6">
-                                {!! Captcha::img() !!}
-                            </div>
+                        
+                            
+                          
                         </div>
                         <div class="form-group row">
                             <label for="captcha" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
 
                             <div class="col-md-6">
+                                 <div class="captcha">
+                          <span>{!! captcha_img() !!}</span>
+                          <br>
+                          <a href="{{ route('register') }}">Refresh captcha</a>
+                          </div>
                                 <input id="captcha" type="text" class="form-control @error('captcha') is-invalid @enderror" name="captcha" value="{{ old('captcha') }}" required autocomplete="captcha" autofocus>
 
+                              
                                 @error('captcha')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -94,3 +100,14 @@
     </div>
 </div>
 @endsection
+<script type="text/javascript">
+$(".btn-refresh").click(function(){
+  $.ajax({
+     type:'GET',
+     url:'/refresh_captcha',
+     success:function(data){
+        $(".captcha span").html(data.captcha);
+     }
+  });
+});
+</script>

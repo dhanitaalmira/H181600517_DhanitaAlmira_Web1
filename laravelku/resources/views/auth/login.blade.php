@@ -63,6 +63,9 @@
 
                             <div class="col-md-6">
                                 <input id="captcha" type="text" class="form-control @error('captcha') is-invalid @enderror" name="captcha" value="{{ old('captcha') }}" required autocomplete="captcha" autofocus>
+                                
+                            <br>
+                            <a href="{{ route('login') }}">Refresh captcha</a>
 
                                 @error('captcha')
                                     <span class="invalid-feedback" role="alert">
@@ -103,4 +106,19 @@
         </div>
     </div>
 </div>
+<script >
+    $('#regen-captcha').on('click', function(e){
+    e.preventDefault();
+ 
+    var anchor = $(this);
+    var captcha = anchor.prev('img');
+ 
+    $.ajax({
+        type: "GET",
+        url: '/ajax_regen_captcha',
+    }).done(function( msg ) {
+        captcha.attr('src', msg);
+    });
+});
+</script>
 @endsection
