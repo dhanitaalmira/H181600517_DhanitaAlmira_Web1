@@ -12,4 +12,8 @@ class KategoriArtikel extends Model
 		'nama','users_id',
 
 	];
+
+	protected $casts=[
+
+	];
 }
