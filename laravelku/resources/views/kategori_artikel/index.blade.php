@@ -14,6 +14,8 @@
                         </div>
                     @endif
 
+                    <a href="{!! route('kategori_artikel.create') !!}" class="btn btn-primary">Tambah Data</a>
+                    <br><br>
                     <table border="1">
 		<tr>
 			<td>ID</td>
