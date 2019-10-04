@@ -3,17 +3,20 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+//use App\User;
 
 class KategoriArtikel extends Model
 {
-	protected $table='KategoriArtikel';
+    protected $guarded = array();
 
-	protected $fillable=[
-		'nama','users_id',
+    protected $table='kategori_artikel';
 
-	];
+    protected $fillabel=[
+        'nama', 'users_id'
+    ];
 
-	protected $casts=[
+    protected $casts=[
 
-	];
+    ];
+
 }

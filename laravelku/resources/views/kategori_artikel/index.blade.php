@@ -5,45 +5,38 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
-
+                <div class="card-header">List Kategori Artikel</div>                
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                <a href="{!! route('kategori_artikel.create') !!}" class="btn btn-primary">Tambahkan Data</a>
+                <table border="1">
+                    <tr>
+                        <td>ID</td>
+                        <td>Nama</td>
+                        <td>Users Id</td>
+                        <td>Create</td>
+                        <td>Aksi</td>
+                    </tr>
 
-                    <a href="{!! route('kategori_artikel.create') !!}" class="btn btn-primary">Tambah Data</a>
-                    <br><br>
-                    <table border="1">
-		<tr>
-			<td>ID</td>
-			<td>Nama</td>
-			<td>Users Id</td>
-			<td>Create</td>
-			<td>Aksi</td>
-		</tr>
+                        @foreach ($listKategoriArtikel as $item)
 
-		@foreach($listKategoriArtikel as $item)
-			<tr>
-				<td>{!! $item->id !!}</td>
-				<td>{!! $item->nama !!}</td>
-				<td>{!! $item->users_id !!}</td>
-				<td>{!! $item->created_at->format('d/m/Y H:s' ) !!}</td>
-				<td>
-					<a href="{!! route('kategori_artikel.show', [$item->id]) !!}" class="btn btn-sm btn-success">Lihat
-					</a>
-				</td>
+                    <tr>
+                        <td>{!! $item->id !!}</td>
+                        <td>{!! $item->nama !!}</td>
+                        <td>{!! $item->users_id !!}</td>
+                        <td>{!! $item->created_at->format('d/m/Y H:i') !!}</td>
+                        <td>
+                            <a href="{!! route('kategori_artikel.show' ,[$item->id]) !!}"  
+                                class="btn btn-sm btn-danger">Lihat</a>
+                    </tr>
 
-			</tr>
+                        @endforeach
 
-		@endforeach
+                </table>
 
-	</table>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 @endsection
