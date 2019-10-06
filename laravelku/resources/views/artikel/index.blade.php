@@ -8,6 +8,7 @@
                 <div class="card-header">List Artikel</div>                
                 <div class="card-body">
                 <a href="{!! route('artikel.create') !!}" class="btn btn-primary">Tambahkan Data</a>
+                <br><br>
                 <table border="1">
                     <tr>
                         <td>ID</td>
@@ -30,7 +31,7 @@
                         <td>{!! $item->created_at->format('d/m/Y H:i') !!}</td>
                         <td>
                             <a href="{!! route('artikel.show' ,[$item->id]) !!}"  
-                                class="btn btn-sm btn-danger">Lihat</a>
+                                class="btn btn-sm btn-success">Lihat</a>
                     </tr>
 
                         @endforeach

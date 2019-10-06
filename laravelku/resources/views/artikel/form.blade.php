@@ -16,7 +16,7 @@
 <div class="form-group row">
         <label for="kategori_artikel_id" class="col-md-2 col-form-label text-md-right">{{ __('Kategori Artikel') }}</label>
             <div class="col-md-10">
-                {!! Form::select('kategori_artikel_id',$kategoriArtikel,null,["class"=>"form-control", "required",]   ) !!}
+                {!! Form::select('kategori_artikel_id',$kategoriArtikel,null,["class"=>"form-control", "required",])!!}
 
              @error('kategori_artikel_id')
               <span class="invalid-feedback" role="alert">

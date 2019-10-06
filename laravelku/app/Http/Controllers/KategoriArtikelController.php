@@ -17,7 +17,7 @@ class KategoriArtikelController extends Controller
 
         $kategoriArtikel=KategoriArtikel::find($id);
 
-        return view('kategori_artikel.show', compact('KategoriArtikel'));
+        return view('kategori_artikel.show', compact('kategoriArtikel'));
     }
 
     public function create(){
